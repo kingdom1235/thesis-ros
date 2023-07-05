@@ -1,0 +1,14 @@
+<launch>
+  <!--delay-->
+  <arg name="node_start_delay" default="3.0" />
+
+  <!-- call service global_localization to localize again-->   
+  <node pkg="rosservice" type="rosservice" name="global_loc" args="call --wait /global_localization" />
+
+  <!-- then rotate robot so that it can localize itself in the map-->
+  <node name = "teleop" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen"
+        launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' ">
+    <param name="speed"     value="0.09"/>
+    <param name="turn"     value="0.8"/>
+  </node>
+</launch>
