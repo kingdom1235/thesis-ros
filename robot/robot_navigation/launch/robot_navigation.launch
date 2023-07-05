@@ -10,7 +10,13 @@
   <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
 
   <!-- AMCL -->
-  <include file="$(find robot_navigation)/launch/amcl.launch"/> <!-- there is an error when amcl first launch: can't localize right-->
+  <!-- <include file="$(find robot_navigation)/launch/amcl.launch"/> -->   <!-- there is an error when amcl first launch: can't localize right-->
+
+  <!-- GMCL -->
+  <!-- <include file="$(find robot_navigation)/launch/gmcl.launch"/> -->
+
+  <!--als_ros MCL-->
+  <include file="$(find robot_navigation)/launch/mcl.launch"/>
 
   <!-- move_base -->
   <include file="$(find robot_navigation)/launch/move_base.launch">
