@@ -42,7 +42,7 @@
     <!-- MCL parameters -->
 
     <!-- Initial pose (x [m], y [m], yaw [deg]) -->
-    <arg name="initial_pose_x" default="0.0" />
+    <arg name="initial_pose_x" default="0.0" /> <!--trankhai default = "0.0" but i change initial value "-2.0" to match with my map-->
     <arg name="initial_pose_y" default="0.0" />
     <arg name="initial_pose_yaw" default="0.0" />
 

@@ -3,29 +3,27 @@
   <arg name="map_file" default="$(find robot_navigation)/maps/map.yaml"/>
   <arg name="open_rviz" default="true"/>
   <arg name="move_forward_only" default="true"/>
+  <arg name="localization_methods" default="mcl" doc="localization type [acml, gcml, mcl]"/>
 
   <include file="$(find robot_bringup)/launch/robot_remote.launch"/>
 
   <!-- Map server -->
   <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
 
-  <!-- AMCL -->
-  <!-- <include file="$(find robot_navigation)/launch/amcl.launch"/> -->   <!-- there is an error when amcl first launch: can't localize right-->
-
-  <!-- GMCL -->
-  <!-- <include file="$(find robot_navigation)/launch/gmcl.launch"/> -->
-
-  <!--als_ros MCL-->
-  <include file="$(find robot_navigation)/launch/mcl.launch"/>
+  <!-- Localization -->
+  <include file="$(find robot_navigation)/launch/$(arg localization_methods).launch">
+    <arg name="initial_pose_x" value="0.0"/>
+  </include>
 
   <!-- move_base -->
   <include file="$(find robot_navigation)/launch/move_base.launch">
     <arg name="move_forward_only" value="$(arg move_forward_only)"/>
-  </include>
+  </include> 
 
   <!-- rviz -->
   <group if="$(arg open_rviz)"> 
     <node pkg="rviz" type="rviz" name="rviz" required="true"
           args="-d $(find robot_navigation)/rviz/robot_navigation.rviz"/>
   </group>
+  
 </launch>
