@@ -4,7 +4,7 @@ raytrace_range: 3.5
 #footprint: [[-0.105, -0.105], [-0.105, 0.105], [0.041, 0.105], [0.041, -0.105]]
 robot_radius: 0.13 #for circular robot
 
-inflation_radius: 0.3 #min distance from center of robot to the obstacles (2.5)
+inflation_radius: 0.3  #min distance from center of robot to the obstacles (2.5) (0.3) 
 cost_scaling_factor: 3.0
 
 map_type: costmap

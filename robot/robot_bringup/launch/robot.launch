@@ -4,6 +4,7 @@
   <arg name="set_lidar_frame_id"    default="base_scan"/>
 
   <!-- Rosserial -->
+
   <include file="$(find robot_bringup)/launch/robot_rosserial.launch">
     <arg name="multi_robot_name" value="$(arg multi_robot_name)"/>
   </include>
@@ -11,6 +12,6 @@
   <!-- Lidar -->
   <include file="$(find robot_bringup)/launch/robot_lidar.launch">
     <arg name="set_frame_id" value="$(arg set_lidar_frame_id)"/>
-  </include>
+  </include> 
 
 </launch>

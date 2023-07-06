@@ -1,0 +1,15 @@
+<launch>
+  <!--Arguments-->
+  <arg name="node_start_delay" default="3.0" />
+  <arg name="rotation_duration" default="10" />
+
+  <!-- Call service global_localization to re-localize in first launch amcl, gmcl-->   
+  <node pkg="rosservice" type="rosservice" name="global_loc" args="call --wait /global_localization" />
+
+  <!-- Rotate robot so that it can localize itself in the map-->
+  <node name="rotate_robot_node" pkg="robot_navigation" type="rotate_robot.py" output="screen"
+        launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' ">
+    <param name="~rotation_duration" value="$(arg rotation_duration)" />
+  </node>
+  
+</launch>
