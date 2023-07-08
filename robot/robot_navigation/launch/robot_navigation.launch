@@ -13,6 +13,7 @@
   <!-- Localization -->
   <include file="$(find robot_navigation)/launch/$(arg localization_methods).launch">
     <arg name="initial_pose_x" value="0.0"/>
+    <arg name="initial_pose_y" value="0.0"/>
   </include>
 
   <!-- move_base -->
