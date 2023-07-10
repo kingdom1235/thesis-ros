@@ -14,4 +14,8 @@
     <arg name="set_frame_id" value="$(arg set_lidar_frame_id)"/>
   </include> 
 
+  <!-- Camera -->
+  <include file="$(find robot_bringup)/launch/robot_camera.launch">
+  </include> 
+
 </launch>
