@@ -5,6 +5,7 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /TF1/Frames1
+        - /Image1
       Splitter Ratio: 0.594406008720398
     Tree Height: 327
   - Class: rviz/Selection
@@ -215,7 +216,7 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Angle: -10.74583911895752
+      Angle: -13.900839805603027
       Class: rviz/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
@@ -248,5 +249,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 1279
-  X: 72
-  Y: 27
+  X: 331
+  Y: 62
