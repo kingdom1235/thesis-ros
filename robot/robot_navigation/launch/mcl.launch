@@ -7,7 +7,7 @@
 
     <!-- Input messages -->
     <arg name="scan_name" default="/scan" /> <!-- sensor_msgs::LaserScan -->
-    <arg name="odom_name" default="/odom" /> <!-- nav_msgs::Odometry -->
+    <arg name="odom_name" default="/raw_odom" /> <!-- nav_msgs::Odometry default: odom-->
     <arg name="map_name" default="/map" /> <!-- nav_msgs::OccupancyGrid -->
 
     <!-- Output messages -->
@@ -27,7 +27,7 @@
     <arg name="laser_frame" default="base_scan" /> <!--default: laser-->
     <arg name="base_link_frame" default="base_footprint" /> <!--default: base_link-->
     <arg name="map_frame" default="map" />
-    <arg name="odom_frame" default="odom" />
+    <arg name="odom_frame" default="odom" /> <!--"odom"-->
 
     <!-- If broadcast_tf is true,
          the localizer broadcasts transformation between the map and odometry frames. -->

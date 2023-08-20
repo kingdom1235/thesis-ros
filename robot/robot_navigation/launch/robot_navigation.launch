@@ -10,7 +10,7 @@
   <!-- Map server -->
   <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
 
-  <!-- Localization -->
+  <!-- Localization: Note that you have to subscribe to /odom topic if not, it can't localize -->
   <include file="$(find robot_navigation)/launch/$(arg localization_methods).launch">
     <arg name="initial_pose_x" value="0.0"/>
     <arg name="initial_pose_y" value="0.0"/>
