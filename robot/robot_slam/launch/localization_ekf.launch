@@ -1,0 +1,23 @@
+<launch>
+  <arg name="slam_methods" default="hector" doc="slam type [gmapping, hector, karto]"/>
+  <arg name="configuration_basename" default="robot_lds_2d.lua"/>
+  <!--Add a node about lidar_odom and delay ?-->
+
+  <include file="$(find robot_slam)/launch/robot_$(arg slam_methods).launch">
+    <arg name="configuration_basename" value="$(arg configuration_basename)"/>
+    <arg name="pub_map_odom_transform" default="false"/>
+    <arg name="pub_odometry" default="true"/>
+    <remap from="map" to="maphector"/> 
+  </include>
+ 
+  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_se" clear_params="true">
+    <rosparam command="load" file="$(find robot_navigation)/param/ekf.yaml" />
+
+    <!--  Placeholder for output topic remapping
+    <remap from="odometry/filtered" to=""/>
+    <remap from="accel/filtered" to=""/>
+    -->
+    <remap from="odometry/filtered" to="odom"/>
+
+  </node>
+</launch>

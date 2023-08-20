@@ -6,7 +6,6 @@
 
   <include file="$(find robot_bringup)/launch/robot_remote.launch"/>
 
-
   <!-- SLAM: Gmapping, Hector, Karto-->
   <include file="$(find robot_slam)/launch/robot_$(arg slam_methods).launch">
     <arg name="configuration_basename" value="$(arg configuration_basename)"/>

@@ -4,8 +4,9 @@
   <arg name="camera_id" default="0"/>
   <arg name="camera_frame_id" default="raspicam"/>
   <arg name="camera_name" default="camerav2_320x240"/>
+  <arg name="node_start_delay" default="10.0" />  
 
-  <node type="raspicam_node" pkg="raspicam_node" name="raspicam_node" output="screen">
+  <node type="raspicam_node" pkg="raspicam_node" name="raspicam_node" output="screen" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' ">
     <param name="private_topics" value="true"/>
 
     <param name="camera_frame_id" value="$(arg camera_frame_id)"/>
