@@ -5,9 +5,9 @@ two_d_mode: true # Enable 2D mode! 3D variables will be ignored (Z, roll, pitch,
 publish_tf: true
 
 map_frame: map
-odom_frame: odom #odom
+odom_frame: odom_fused #odom
 base_link_frame: base_footprint
-world_frame: odom #odom
+world_frame: odom_fused #odom
 
 odom0: /raw_odom
 
