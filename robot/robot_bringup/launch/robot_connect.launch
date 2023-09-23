@@ -1,0 +1,4 @@
+<launch>
+  <node pkg="robot_bringup" type="ssh_script.sh" name="ssh_script" output="screen"
+    args="$(find robot_bringup)/src/ssh_script.sh" />
+</launch>
