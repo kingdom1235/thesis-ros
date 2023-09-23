@@ -1,0 +1,4 @@
+<launch>
+  <node pkg="robot_bringup" type="reset.sh" name="reset" output="screen"
+    args="$(find robot_bringup)/src/reset.sh" />
+</launch>
