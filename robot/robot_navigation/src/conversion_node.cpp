@@ -52,7 +52,7 @@ void odometryCallback_(const nav_msgs::Odometry::ConstPtr &msg) {
     double roll, pitch, yaw;
     m.getRPY(roll, pitch, yaw);
     
-    pose2d.theta = (yaw*180)/M_PI;
+    pose2d.theta = yaw;
     pub_pose_.publish(pose2d);
 }
 
@@ -70,7 +70,7 @@ void rawOdometryCallback_(const nav_msgs::Odometry::ConstPtr &msg) {
     double roll, pitch, yaw;
     m.getRPY(roll, pitch, yaw);
     
-    raw_pose2d.theta = (yaw*180)/M_PI;
+    raw_pose2d.theta = yaw;
     pub_raw_pose_.publish(raw_pose2d);
 }
 
@@ -88,7 +88,7 @@ void hectorOdometryCallback_(const geometry_msgs::PoseStamped::ConstPtr &msg) {
     double roll, pitch, yaw;
     m.getRPY(roll, pitch, yaw);
     
-    hector_pose2d.theta = (yaw*180)/M_PI;
+    hector_pose2d.theta = yaw;
     pub_hector_pose_.publish(hector_pose2d);
 }
 
@@ -106,7 +106,7 @@ void goalCallback_(const geometry_msgs::PoseStamped::ConstPtr &msg) {
     double roll, pitch, yaw;
     m.getRPY(roll, pitch, yaw);
     
-    goal_pose2d.theta = (yaw * 180) / M_PI;
+    goal_pose2d.theta = yaw;
     pub_goal_.publish(goal_pose2d);
 }
 
@@ -124,6 +124,6 @@ void localizationCallback_(const geometry_msgs::PoseStamped::ConstPtr &msg){
     double roll, pitch, yaw;
     m.getRPY(roll, pitch, yaw);
 
-    localization_pose2d.theta = (yaw * 180) / M_PI;
+    localization_pose2d.theta = yaw;
     pub_localization_.publish(localization_pose2d);
 }
